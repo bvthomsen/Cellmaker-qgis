@@ -101,6 +101,18 @@ class CellMaker:
     def run1(self):
     
         # show the dialog
+        layer = self.iface.activeLayer()
+        if layer:
+            mbr = layer.boundingBoxOfSelected()
+            crsSrc = layer.crs()
+            crsDest = self.iface.mapCanvas().mapRenderer().destinationCrs()
+            xform = QgsCoordinateTransform(crsSrc, crsDest)
+            mbr = xform.transform(mbr)
+            self.dlg1.ui.dsbXmin.setValue(mbr.xMinimum())
+            self.dlg1.ui.dsbYmin.setValue(mbr.yMinimum())
+            self.dlg1.ui.dsbXmax.setValue(mbr.xMaximum())
+            self.dlg1.ui.dsbYmax.setValue(mbr.yMaximum())
+     
         self.dlg1.show()
         self.dlg1.ui.leCellName.setFocus()
 
