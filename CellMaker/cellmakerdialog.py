@@ -33,7 +33,7 @@ class CellMakerDialog1(QtGui.QDialog):
         # Set up the user interface from Designer.
         self.ui = Ui_CellMaker1()
         self.ui.setupUi(self)
-        
+
     def accept(self):
 
         class XminGeXmax(Exception): pass

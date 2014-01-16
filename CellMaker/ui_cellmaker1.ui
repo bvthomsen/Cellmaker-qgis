@@ -240,7 +240,7 @@
     <rect>
      <x>370</x>
      <y>20</y>
-     <width>91</width>
+     <width>71</width>
      <height>20</height>
     </rect>
    </property>
@@ -254,7 +254,6 @@
  </widget>
  <tabstops>
   <tabstop>leCellName</tabstop>
-  <tabstop>cbShow</tabstop>
   <tabstop>dsbXmin</tabstop>
   <tabstop>dsbXmax</tabstop>
   <tabstop>dsbYmin</tabstop>

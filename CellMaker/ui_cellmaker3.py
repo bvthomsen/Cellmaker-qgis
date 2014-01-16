@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_cellmaker3.ui'
 #
-# Created: Sun Dec 29 11:25:30 2013
+# Created: Wed Dec 25 10:00:25 2013
 #      by: PyQt4 UI code generator 4.8.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -21,7 +21,7 @@ class Ui_CellMaker3(object):
         CellMaker3.resize(456, 180)
         self.buttonBox = QtGui.QDialogButtonBox(CellMaker3)
         self.buttonBox.setEnabled(True)
-        self.buttonBox.setGeometry(QtCore.QRect(270, 140, 171, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(100, 140, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
@@ -44,11 +44,11 @@ class Ui_CellMaker3(object):
         self.gbOverlay.setGeometry(QtCore.QRect(80, 70, 361, 51))
         self.gbOverlay.setObjectName(_fromUtf8("gbOverlay"))
         self.rbValues = QtGui.QRadioButton(self.gbOverlay)
-        self.rbValues.setGeometry(QtCore.QRect(20, 20, 171, 18))
+        self.rbValues.setGeometry(QtCore.QRect(10, 20, 131, 18))
         self.rbValues.setChecked(True)
         self.rbValues.setObjectName(_fromUtf8("rbValues"))
         self.rbOverlays = QtGui.QRadioButton(self.gbOverlay)
-        self.rbOverlays.setGeometry(QtCore.QRect(190, 20, 171, 18))
+        self.rbOverlays.setGeometry(QtCore.QRect(190, 20, 151, 18))
         self.rbOverlays.setObjectName(_fromUtf8("rbOverlays"))
 
         self.retranslateUi(CellMaker3)
@@ -57,9 +57,7 @@ class Ui_CellMaker3(object):
         QtCore.QMetaObject.connectSlotsByName(CellMaker3)
         CellMaker3.setTabOrder(self.cbCells, self.leRasterFile)
         CellMaker3.setTabOrder(self.leRasterFile, self.pbRasterFile)
-        CellMaker3.setTabOrder(self.pbRasterFile, self.rbValues)
-        CellMaker3.setTabOrder(self.rbValues, self.rbOverlays)
-        CellMaker3.setTabOrder(self.rbOverlays, self.buttonBox)
+        CellMaker3.setTabOrder(self.pbRasterFile, self.buttonBox)
 
     def retranslateUi(self, CellMaker3):
         CellMaker3.setWindowTitle(QtGui.QApplication.translate("CellMaker3", "Save cell layer as raster", None, QtGui.QApplication.UnicodeUTF8))

@@ -44,11 +44,8 @@ class CellMaker:
         self.iface = iface
         self.plugin_dir = os.path.dirname(__file__)
         home = os.path.expanduser("~") + "/Cellmaker"
-        if not os.path.exists(home): 
-            os.makedirs(home)
-        if not os.path.isfile(home + "/cellmaker.sqlite"): 
-            shutil.copyfile(os.path.dirname(__file__) + "/cellmaker.sqlite", home + "/Cellmaker.sqlite")
-            
+        if not os.path.exists(home): os.makedirs(home)
+        if not os.path.isfile(home + "/cellmaker.sqlite"): shutil.copyfile(os.path.dirname(__file__) + "/cellmaker.sqlite", home + "/Cellmaker.sqlite")
         self.database_name = home + "/cellmaker.sqlite" # os.path.dirname(__file__) + "/cellmaker.sqlite"
         locale = QSettings().value("locale/userLocale")[0:2]
         localePath = os.path.join(self.plugin_dir, 'i18n', 'cellmaker_{}.qm'.format(locale))
@@ -101,22 +98,7 @@ class CellMaker:
     def run1(self):
     
         # show the dialog
-        layer = self.iface.activeLayer()
-        if layer:
-            if layer.type() == QgsMapLayer.VectorLayer:
-                mbr = layer.boundingBoxOfSelected()
-                crsSrc = layer.crs()
-                crsDest = self.iface.mapCanvas().mapRenderer().destinationCrs()
-                xform = QgsCoordinateTransform(crsSrc, crsDest)
-                mbr = xform.transform(mbr)
-                self.dlg1.ui.dsbXmin.setValue(mbr.xMinimum())
-                self.dlg1.ui.dsbYmin.setValue(mbr.yMinimum())
-                self.dlg1.ui.dsbXmax.setValue(mbr.xMaximum())
-                self.dlg1.ui.dsbYmax.setValue(mbr.yMaximum())
-     
         self.dlg1.show()
-        self.dlg1.ui.leCellName.setFocus()
-
         # Run the dialog event loop
         result = self.dlg1.exec_()
         # See if OK was pressed
@@ -124,6 +106,9 @@ class CellMaker:
             nrows = self.dlg1.Vnrows        
             ncols = self.dlg1.Vncols
             ncells = ncols*nrows
+            reply = QMessageBox.information(self.dlg1, 'Row , columns, cells',str(nrows) + " / " + str(ncols) + " / " + str(ncells), 
+                    QMessageBox.Ok | QMessageBox.Ok)
+
            
             if (ncells > 100000): 
                 reply = QMessageBox.question(self.dlg1, 'Generate cells (number > 100.000) ?',
@@ -190,6 +175,7 @@ class CellMaker:
                        feats = []
                        
             if len(feats) > 0:
+                QMessageBox.information(self.dlg1, 'Features',str(len(feats)), QMessageBox.Ok | QMessageBox.Ok)
                 layer.dataProvider().addFeatures(feats)
 
             # If checked, add new layer to canvas
@@ -222,7 +208,7 @@ class CellMaker:
         allLayers = canvas.layers()
         for i in allLayers:
             if i.type() == QgsMapLayer.VectorLayer:
-                self.dlg2.ui.cbOverlays.addItem(i.name(),i.geometryType())        
+                if i.geometryType() < 3: self.dlg2.ui.cbOverlays.addItem(i.name(),i.geometryType())        
 
         # check combobox items
         if self.dlg2.ui.cbOverlays.count() == 0 or self.dlg2.ui.cbCells.count() == 0:
@@ -231,7 +217,6 @@ class CellMaker:
             
         # show the dialog
         self.dlg2.show()
-        self.dlg2.ui.cbCells.setFocus()
         
         result = self.dlg2.exec_()
         if result == 1:
@@ -301,7 +286,7 @@ class CellMaker:
                     att[xid] = {3:xval, 4:xover}
  
             if att <> {}: ctLayer.dataProvider().changeAttributeValues(att) 
-            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Total number of cells / additions: "), str(number) + ' / ' + str(counter), QgsMessageBar.INFO, 5)
+            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Total number of cells / additions: "), str(number) + ' / ' + str(counter), QgsMessageBar.INFO)
 
 
 
@@ -326,7 +311,6 @@ class CellMaker:
 
         # show the dialog
         self.dlg3.show()
-        self.dlg3.ui.cbCells.setFocus()
 
         # Run the dialog event loop
         result = self.dlg3.exec_()
@@ -363,7 +347,7 @@ class CellMaker:
                 fpout.write(str(f[att]) + " ")
             fpout.write("\n")
             fpout.close()
-            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Total number of pixels: "), str(counter), QgsMessageBar.INFO,5)
+            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Total number of pixels: "), str(counter), QgsMessageBar.INFO)
  
 
     def run4(self):
@@ -386,7 +370,6 @@ class CellMaker:
    
         # show the dialog
         self.dlg4.show()
-        self.dlg4.ui.cbCells.setFocus()
 
         # Run the dialog event loop
         result = self.dlg4.exec_()
@@ -427,4 +410,4 @@ class CellMaker:
             cur.execute(sql)
             conn.commit()                        
             conn.close
-            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Delete Table from database"), QApplication.translate("@default","Table ") + self.dlg4.Vcells + QApplication.translate("@default"," deleted"), QgsMessageBar.INFO,5)
+            qgis.utils.iface.messageBar().pushMessage(QApplication.translate("@default","Delete Table from database"), QApplication.translate("@default","Table ") + self.dlg4.Vcells + QApplication.translate("@default"," deleted"), QgsMessageBar.INFO)

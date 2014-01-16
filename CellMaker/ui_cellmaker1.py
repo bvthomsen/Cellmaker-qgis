@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_cellmaker1.ui'
 #
-# Created: Sun Dec 29 11:25:30 2013
+# Created: Wed Dec 25 10:00:25 2013
 #      by: PyQt4 UI code generator 4.8.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -81,7 +81,7 @@ class Ui_CellMaker1(object):
         self.dsbValue.setSingleStep(100.0)
         self.dsbValue.setObjectName(_fromUtf8("dsbValue"))
         self.cbShow = QtGui.QCheckBox(CellMaker1)
-        self.cbShow.setGeometry(QtCore.QRect(370, 20, 91, 20))
+        self.cbShow.setGeometry(QtCore.QRect(370, 20, 71, 20))
         self.cbShow.setChecked(True)
         self.cbShow.setObjectName(_fromUtf8("cbShow"))
 
@@ -89,8 +89,7 @@ class Ui_CellMaker1(object):
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), CellMaker1.accept)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), CellMaker1.reject)
         QtCore.QMetaObject.connectSlotsByName(CellMaker1)
-        CellMaker1.setTabOrder(self.leCellName, self.cbShow)
-        CellMaker1.setTabOrder(self.cbShow, self.dsbXmin)
+        CellMaker1.setTabOrder(self.leCellName, self.dsbXmin)
         CellMaker1.setTabOrder(self.dsbXmin, self.dsbXmax)
         CellMaker1.setTabOrder(self.dsbXmax, self.dsbYmin)
         CellMaker1.setTabOrder(self.dsbYmin, self.dsbYmax)
