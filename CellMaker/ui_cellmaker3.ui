@@ -22,9 +22,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>270</x>
      <y>140</y>
-     <width>341</width>
+     <width>171</width>
      <height>32</height>
     </rect>
    </property>
@@ -109,9 +109,9 @@
    <widget class="QRadioButton" name="rbValues">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>20</y>
-      <width>131</width>
+      <width>171</width>
       <height>18</height>
      </rect>
     </property>
@@ -127,7 +127,7 @@
      <rect>
       <x>190</x>
       <y>20</y>
-      <width>151</width>
+      <width>171</width>
       <height>18</height>
      </rect>
     </property>
@@ -141,6 +141,8 @@
   <tabstop>cbCells</tabstop>
   <tabstop>leRasterFile</tabstop>
   <tabstop>pbRasterFile</tabstop>
+  <tabstop>rbValues</tabstop>
+  <tabstop>rbOverlays</tabstop>
   <tabstop>buttonBox</tabstop>
  </tabstops>
  <resources/>

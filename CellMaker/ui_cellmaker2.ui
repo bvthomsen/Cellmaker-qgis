@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>456</width>
-    <height>180</height>
+    <height>228</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>140</y>
-     <width>341</width>
+     <x>250</x>
+     <y>190</y>
+     <width>191</width>
      <height>32</height>
     </rect>
    </property>
@@ -43,8 +43,8 @@
    <property name="geometry">
     <rect>
      <x>250</x>
-     <y>80</y>
-     <width>51</width>
+     <y>140</y>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
@@ -56,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>80</y>
+     <y>140</y>
      <width>121</width>
      <height>22</height>
     </rect>
@@ -84,22 +84,12 @@
     <string>Cell layer</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="cbOverlays">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>50</y>
-     <width>361</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>50</y>
-     <width>81</width>
+     <width>71</width>
      <height>16</height>
     </rect>
    </property>
@@ -111,9 +101,9 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>80</y>
+     <y>140</y>
      <width>151</width>
-     <height>91</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="title">
@@ -124,7 +114,7 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>91</width>
+      <width>131</width>
       <height>18</height>
      </rect>
     </property>
@@ -140,7 +130,7 @@
      <rect>
       <x>20</x>
       <y>40</y>
-      <width>82</width>
+      <width>131</width>
       <height>18</height>
      </rect>
     </property>
@@ -153,7 +143,7 @@
      <rect>
       <x>20</x>
       <y>60</y>
-      <width>82</width>
+      <width>131</width>
       <height>18</height>
      </rect>
     </property>
@@ -162,7 +152,31 @@
     </property>
    </widget>
   </widget>
+  <widget class="QListWidget" name="lwOverlays">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>50</y>
+     <width>361</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>cbCells</tabstop>
+  <tabstop>rbSimpleOverlay</tabstop>
+  <tabstop>rbLineOverlay</tabstop>
+  <tabstop>rbAreaOverlay</tabstop>
+  <tabstop>dsbFactor</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

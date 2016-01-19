@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'ui_cellmaker3.ui'
 #
-# Created: Wed Dec 25 10:00:25 2013
-#      by: PyQt4 UI code generator 4.8.3
+# Created: Sun May 18 18:46:35 2014
+#      by: PyQt4 UI code generator 4.10.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_CellMaker3(object):
     def setupUi(self, CellMaker3):
@@ -21,7 +30,7 @@ class Ui_CellMaker3(object):
         CellMaker3.resize(456, 180)
         self.buttonBox = QtGui.QDialogButtonBox(CellMaker3)
         self.buttonBox.setEnabled(True)
-        self.buttonBox.setGeometry(QtCore.QRect(100, 140, 341, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(270, 140, 171, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
@@ -44,11 +53,11 @@ class Ui_CellMaker3(object):
         self.gbOverlay.setGeometry(QtCore.QRect(80, 70, 361, 51))
         self.gbOverlay.setObjectName(_fromUtf8("gbOverlay"))
         self.rbValues = QtGui.QRadioButton(self.gbOverlay)
-        self.rbValues.setGeometry(QtCore.QRect(10, 20, 131, 18))
+        self.rbValues.setGeometry(QtCore.QRect(20, 20, 171, 18))
         self.rbValues.setChecked(True)
         self.rbValues.setObjectName(_fromUtf8("rbValues"))
         self.rbOverlays = QtGui.QRadioButton(self.gbOverlay)
-        self.rbOverlays.setGeometry(QtCore.QRect(190, 20, 151, 18))
+        self.rbOverlays.setGeometry(QtCore.QRect(190, 20, 171, 18))
         self.rbOverlays.setObjectName(_fromUtf8("rbOverlays"))
 
         self.retranslateUi(CellMaker3)
@@ -57,14 +66,16 @@ class Ui_CellMaker3(object):
         QtCore.QMetaObject.connectSlotsByName(CellMaker3)
         CellMaker3.setTabOrder(self.cbCells, self.leRasterFile)
         CellMaker3.setTabOrder(self.leRasterFile, self.pbRasterFile)
-        CellMaker3.setTabOrder(self.pbRasterFile, self.buttonBox)
+        CellMaker3.setTabOrder(self.pbRasterFile, self.rbValues)
+        CellMaker3.setTabOrder(self.rbValues, self.rbOverlays)
+        CellMaker3.setTabOrder(self.rbOverlays, self.buttonBox)
 
     def retranslateUi(self, CellMaker3):
-        CellMaker3.setWindowTitle(QtGui.QApplication.translate("CellMaker3", "Save cell layer as raster", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_11.setText(QtGui.QApplication.translate("CellMaker3", "Cell layer", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_12.setText(QtGui.QApplication.translate("CellMaker3", "Raster file", None, QtGui.QApplication.UnicodeUTF8))
-        self.pbRasterFile.setText(QtGui.QApplication.translate("CellMaker3", "Browse..", None, QtGui.QApplication.UnicodeUTF8))
-        self.gbOverlay.setTitle(QtGui.QApplication.translate("CellMaker3", "Data values", None, QtGui.QApplication.UnicodeUTF8))
-        self.rbValues.setText(QtGui.QApplication.translate("CellMaker3", "Accumulated values", None, QtGui.QApplication.UnicodeUTF8))
-        self.rbOverlays.setText(QtGui.QApplication.translate("CellMaker3", "Number of overlay hits", None, QtGui.QApplication.UnicodeUTF8))
+        CellMaker3.setWindowTitle(_translate("CellMaker3", "Save cell layer as raster", None))
+        self.label_11.setText(_translate("CellMaker3", "Cell layer", None))
+        self.label_12.setText(_translate("CellMaker3", "Raster file", None))
+        self.pbRasterFile.setText(_translate("CellMaker3", "Browse..", None))
+        self.gbOverlay.setTitle(_translate("CellMaker3", "Data values", None))
+        self.rbValues.setText(_translate("CellMaker3", "Accumulated values", None))
+        self.rbOverlays.setText(_translate("CellMaker3", "Number of overlay hits", None))
 

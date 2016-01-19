@@ -19,9 +19,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>270</x>
      <y>40</y>
-     <width>341</width>
+     <width>171</width>
      <height>32</height>
     </rect>
    </property>
@@ -35,9 +35,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>10</x>
      <y>10</y>
-     <width>81</width>
+     <width>91</width>
      <height>16</height>
     </rect>
    </property>
@@ -48,14 +48,37 @@
   <widget class="QComboBox" name="cbCells">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>80</x>
      <y>10</y>
      <width>361</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
+  <widget class="QCheckBox" name="cbVacuum">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>40</y>
+     <width>131</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>VACUUM database</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>cbCells</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
